@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Generator Pro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔳 QR Generator Pro</h1>
+    
+    <div class="input-group">
+      <label for="qr-text">Текст или URL:</label>
+      <textarea id="qr-text" placeholder="Введите текст или ссылку..." rows="3"></textarea>
+      <button id="current-page-btn" title="Использовать URL текущей страницы">📄 Текущая страница</button>
+    </div>
+
+    <div class="settings-group">
+      <h3>Настройки</h3>
+      <div class="setting-row">
+        <label for="qr-size">Размер:</label>
+        <select id="qr-size">
+          <option value="200">200x200</option>
+          <option value="300" selected>300x300</option>
+          <option value="400">400x400</option>
+          <option value="500">500x500</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label for="qr-color">Цвет QR:</label>
+        <input type="color" id="qr-color" value="#000000">
+      </div>
+      <div class="setting-row">
+        <label for="qr-bg">Цвет фона:</label>
+        <input type="color" id="qr-bg" value="#ffffff">
+      </div>
+    </div>
+
+    <button id="generate-btn">✨ Создать QR-код</button>
+
+    <div id="qr-result" class="qr-result hidden">
+      <canvas id="qr-canvas"></canvas>
+      <div class="action-buttons">
+        <button id="download-btn">💾 Скачать PNG</button>
+        <button id="copy-btn">📋 Копировать</button>
+      </div>
+    </div>
+
+    <div id="history-section" class="history-section">
+      <h3>📜 История</h3>
+      <ul id="history-list"></ul>
+      <button id="clear-history-btn" class="secondary-btn">Очистить историю</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
