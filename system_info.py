@@ -31,19 +31,50 @@ def get_disk_info(path: str = "/") -> Dict[str, Any]:
     """Get disk information for specified path."""
     # Validate path to prevent directory traversal attacks
     try:
+        # Check for empty or None path
+        if not path or not isinstance(path, str):
+            raise ValueError("Invalid path: path must be a non-empty string")
+        
+        # Check for null bytes and other dangerous characters
+        if '\x00' in path:
+            raise ValueError("Invalid path: null bytes are not allowed")
+        
         # Ensure path is absolute and normalized
         abs_path = os.path.abspath(os.path.normpath(path))
+        
+        # Resolve symbolic links to get the real path
+        real_path = os.path.realpath(abs_path)
+        
+        # Define allowed root directories (whitelist approach)
+        allowed_roots = ["/", "/home", "/tmp", "/var", "/opt"]
+        
+        # Check if the resolved path is within allowed roots
+        path_allowed = False
+        for allowed_root in allowed_roots:
+            if real_path == allowed_root or real_path.startswith(allowed_root + os.sep):
+                path_allowed = True
+                break
+        
+        if not path_allowed:
+            raise ValueError(f"Access denied: path '{path}' is outside allowed directories")
+        
         # Check if path exists and is accessible
-        if not os.path.exists(abs_path):
+        if not os.path.exists(real_path):
             raise ValueError(f"Path does not exist: {path}")
-        disk = psutil.disk_usage(abs_path)
+        
+        # Verify it's a valid mount point or directory
+        if not os.path.isdir(real_path):
+            raise ValueError(f"Path is not a directory: {path}")
+        
+        disk = psutil.disk_usage(real_path)
         return {
             "total": disk.total,
             "used": disk.used,
             "free": disk.free,
             "percent": disk.percent,
         }
-    except Exception:
+    except (ValueError, OSError, PermissionError) as e:
+        # Log specific error types for debugging while returning safe defaults
         return {
             "total": 0,
             "used": 0,
