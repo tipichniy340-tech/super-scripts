@@ -1,1 +1,48 @@
-Nothing should be ignored based on the provided file changes. The only added file is `index.html`, which is a source file and should not be ignored.
+```
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+python-eggs/
+*.so
+*.egg-info/
+.eggs/
+
+# Testing
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.hypothesis/
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+.installed.cfg
+*.egg
+
+# System files
+.DS_Store
+Thumbs.db
+```

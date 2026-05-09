@@ -2,20 +2,38 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This project is currently in early development. All versions should be considered experimental.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| 0.1.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+We take the security of this project seriously. If you discover a security vulnerability, please follow these steps:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+### How to Report
+
+1. **Create an Issue**: Open a new issue on GitHub with the label "security"
+2. **Email**: Send details to [maintainer email]
+3. **Include**: 
+   - Description of the vulnerability
+   - Steps to reproduce
+   - Potential impact
+   - Suggested fix (if any)
+
+### What to Expect
+
+- **Initial Response**: Within 48 hours
+- **Status Update**: Within 1 week
+- **Resolution Timeline**: Depends on severity, typically 1-4 weeks
+
+### Security Guidelines
+
+- Do not disclose vulnerabilities publicly before they are resolved
+- Provide sufficient information for reproduction
+- Follow responsible disclosure practices
+
+---
+
+**Made with ❤️ by tipichniy340-tech**
