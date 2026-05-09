@@ -1,5 +1,6 @@
 # 🚀 Super Scripts Collection
-Collection of unique and powerful PC automation tools.
+
+Collection of unique and powerful PC automation tools and browser extensions.
 
 ## 🛠 Tools Included
 
@@ -28,6 +29,29 @@ display_system_info()
 info = get_all_system_info()
 print(info['cpu']['percent'])  # Загрузка CPU в %
 ```
+
+---
+
+### 🗂️ Tab Manager Pro (Browser Extension)
+
+Powerful browser extension for managing your tabs efficiently!
+
+**Features:**
+- 🔍 **Smart Search** - Quickly find tabs by title or URL
+- 📊 **Tab Statistics** - See total tab count at a glance
+- 🗑️ **Close Duplicates** - Remove duplicate tabs with one click
+- ➡️ **Close Tabs to Right** - Clean up tabs to the right
+- 📁 **Group by Domain** - Automatically organize tabs by website
+- ⌨️ **Keyboard Shortcut** - Quick access with `Ctrl+Shift+T`
+- 🎨 **Beautiful UI** - Modern gradient design
+
+**Installation:**
+1. Navigate to `extensions/tab-manager-pro`
+2. Open Chrome/Edge and go to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the folder
+
+📖 [Full Documentation](extensions/tab-manager-pro/README.md)
 
 ---
 
