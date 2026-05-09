@@ -1,1 +1,4 @@
-Nothing should be ignored based on the provided file changes. The only added file is CONTRIBUTING.md, which is a documentation file that should be tracked in version control.
+```
+__pycache__/
+*.pyc
+```
