@@ -1,1 +1,1 @@
-Nothing should be ignored based on the provided file changes. The only added file is CONTRIBUTING.md, which is a documentation file that should be tracked in version control.
+Nothing needs to be added to the .gitignore file since the only change is adding a markdown template file (.github/PULL_REQUEST_TEMPLATE.md) which is a source/config file and should not be ignored.
