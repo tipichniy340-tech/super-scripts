@@ -1,0 +1,17 @@
+# Chrome Web Store artifacts
+*.crx
+*.pem
+*.zip
+
+# Generated PNG icons (keep SVGs in repo)
+*.png
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

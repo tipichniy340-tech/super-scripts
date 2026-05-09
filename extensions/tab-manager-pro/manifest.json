@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Manager Pro",
+  "version": "1.0.0",
+  "description": "Powerful tab management with search, grouping, and quick navigation. Boost your productivity!",
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "storage",
+    "sessions"
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Tab Manager Pro"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+T",
+        "mac": "Command+Shift+T"
+      }
+    }
+  }
+}
