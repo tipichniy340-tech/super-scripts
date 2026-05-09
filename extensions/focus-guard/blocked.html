@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сайт заблокирован</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #dc3545;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #667eea;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #5568d3;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: #6c757d;
+      margin-left: 10px;
+    }
+
+    .btn-secondary:hover {
+      background: #5a6268;
+    }
+
+    .stats {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    .stats p {
+      font-size: 14px;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🚫</div>
+    <h1>Заблокировано!</h1>
+    <p>Этот сайт находится в вашем чёрном списке.<br/>Focus Guard помогает вам оставаться продуктивным.</p>
+    <button id="close-tab" class="btn">Закрыть вкладку</button>
+    <button id="disable-temp" class="btn btn-secondary">Временно отключить (5 мин)</button>
+    
+    <div class="stats">
+      <p>💪 Продолжайте в том же духе!</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('close-tab').addEventListener('click', () => {
+      chrome.tabs.getCurrent((tab) => {
+        chrome.tabs.remove(tab.id);
+      });
+    });
+
+    document.getElementById('disable-temp').addEventListener('click', () => {
+      chrome.storage.sync.set({ isBlockingEnabled: false }, () => {
+        // Re-enable after 5 minutes
+        setTimeout(() => {
+          chrome.storage.sync.set({ isBlockingEnabled: true });
+          chrome.notifications.create({
+            type: 'basic',
+            iconUrl: 'icons/icon128.png',
+            title: 'Focus Guard',
+            message: 'Блокировка снова включена'
+          });
+        }, 5 * 60 * 1000);
+
+        // Close current tab and go to new tab
+        chrome.tabs.getCurrent((tab) => {
+          chrome.tabs.update(tab.id, { url: 'chrome://newtab' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus Guard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🛡️ Focus Guard</h1>
+      <p class="subtitle">Ваш персональный защитник фокуса</p>
+    </header>
+
+    <!-- Статус таймера -->
+    <section class="timer-section">
+      <div id="timer-display" class="timer-display">25:00</div>
+      <div class="timer-controls">
+        <button id="start-btn" class="btn btn-primary">Старт</button>
+        <button id="pause-btn" class="btn btn-secondary">Пауза</button>
+        <button id="reset-btn" class="btn btn-danger">Сброс</button>
+      </div>
+      <div class="mode-toggles">
+        <label class="toggle">
+          <input type="checkbox" id="pomodoro-mode" checked />
+          <span class="slider"></span>
+          <span class="label">Pomodoro (25 мин)</span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="short-break" />
+          <span class="slider"></span>
+          <span class="label">Короткий перерыв (5 мин)</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Блокировка сайтов -->
+    <section class="blocklist-section">
+      <h2>🚫 Блокируемые сайты</h2>
+      <div class="input-group">
+        <input type="text" id="site-input" placeholder="example.com" />
+        <button id="add-site-btn" class="btn btn-sm">Добавить</button>
+      </div>
+      <ul id="blocklist" class="site-list"></ul>
+      <div class="global-toggle">
+        <label class="switch">
+          <input type="checkbox" id="block-toggle" />
+          <span class="slider round"></span>
+          <span class="status-text">Блокировка <strong>выключена</strong></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Статистика -->
+    <section class="stats-section">
+      <h2>📊 Статистика сегодня</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="focus-time">0</div>
+          <div class="stat-label">Минут в фокусе</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="sessions-count">0</div>
+          <div class="stat-label">Завершенных сессий</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="blocked-count">0</div>
+          <div class="stat-label">Заблокированных попыток</div>
+        </div>
+      </div>
+      <button id="reset-stats-btn" class="btn btn-outline">Сбросить статистику</button>
+    </section>
+
+    <footer>
+      <p>Сделано для продуктивности 💪</p>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
