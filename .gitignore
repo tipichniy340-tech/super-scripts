@@ -1,4 +1,3 @@
-```
 # Logs and temp files
 *.log
 *.tmp
@@ -45,4 +44,41 @@ venv.bak/
 # System files
 .DS_Store
 Thumbs.db
-```
+
+# Configuration and Settings
+*.ini
+*.cfg
+config.json
+settings.json
+
+# IDE and Editor
+*.iml
+*.sublime-*
+*.code-workspace
+
+# OS generated files
+ehthumbs.db
+Desktop.ini
+
+# Build outputs
+dist/
+build/
+*.spec
+
+# Documentation builds
+docs/_build/
+site/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Ruff
+.ruff_cache/
