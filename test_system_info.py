@@ -151,9 +151,11 @@ class TestGetDiskInfo:
         mock_disk.percent = 50.0
         mock_psutil.disk_usage.return_value = mock_disk
         
-        # Mock os.path.exists to return True for the test path
-        with patch('system_info.os.path.exists', return_value=True):
-            get_disk_info("/custom/path")
+        # Mock os.path.exists and os.path.isdir to return True for the test path
+        # Use a path within allowed directories (/tmp is in the whitelist)
+        with patch('system_info.os.path.exists', return_value=True), \
+             patch('system_info.os.path.isdir', return_value=True):
+            get_disk_info("/tmp/custom")
 
         mock_psutil.disk_usage.assert_called_once()
 
