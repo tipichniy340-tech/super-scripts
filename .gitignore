@@ -1,20 +1,48 @@
-```gitignore
+```
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+.Python
+python-eggs/
+*.so
+*.egg-info/
+.eggs/
 
-# Environment variables
-.env
-.env.local
-*.env.*
+# Testing
+.coverage
+coverage/
+htmlcov/
+.pytest_cache/
+.hypothesis/
 
-# Logs
-*.log
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+.installed.cfg
+*.egg
 
-# Temporary files
-*.tmp
-*.swp
-*~
+# System files
+.DS_Store
+Thumbs.db
 ```

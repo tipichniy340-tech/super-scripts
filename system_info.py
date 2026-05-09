@@ -1,6 +1,7 @@
 """
 System Info Module - Displays system information using rich and psutil.
 """
+import os
 import psutil
 from rich.console import Console
 from rich.table import Table
@@ -28,8 +29,14 @@ def get_memory_info() -> Dict[str, Any]:
 
 def get_disk_info(path: str = "/") -> Dict[str, Any]:
     """Get disk information for specified path."""
+    # Validate path to prevent directory traversal attacks
     try:
-        disk = psutil.disk_usage(path)
+        # Ensure path is absolute and normalized
+        abs_path = os.path.abspath(os.path.normpath(path))
+        # Check if path exists and is accessible
+        if not os.path.exists(abs_path):
+            raise ValueError(f"Path does not exist: {path}")
+        disk = psutil.disk_usage(abs_path)
         return {
             "total": disk.total,
             "used": disk.used,

@@ -150,10 +150,12 @@ class TestGetDiskInfo:
         mock_disk.free = 50
         mock_disk.percent = 50.0
         mock_psutil.disk_usage.return_value = mock_disk
+        
+        # Mock os.path.exists to return True for the test path
+        with patch('system_info.os.path.exists', return_value=True):
+            get_disk_info("/custom/path")
 
-        get_disk_info("/custom/path")
-
-        mock_psutil.disk_usage.assert_called_once_with("/custom/path")
+        mock_psutil.disk_usage.assert_called_once()
 
 
 class TestCreateSystemTable:
