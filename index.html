@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Основные мета-теги -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Мета-теги -->
+    <title>Super Scripts Collection | Мощные инструменты автоматизации</title>
+    <meta name="title" content="Super Scripts Collection | Мощные инструменты автоматизации">
+    <meta name="description" content="Коллекция уникальных и мощных инструментов для автоматизации ПК. Мониторинг системы в реальном времени, анализ ресурсов и многое другое на Python.">
+    <meta name="keywords" content="python, system monitoring, automation, psutil, rich, cpu usage, memory tracking, disk usage, скрипты, автоматизация, мониторинг системы">
+    <meta name="author" content="tipichniy340-tech">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- Open Graph / Facebook / VK -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/tipichniy340-tech/">
+    <meta property="og:title" content="Super Scripts Collection | Мощные инструменты автоматизации">
+    <meta property="og:description" content="Коллекция уникальных и мощных инструментов для автоматизации ПК. Мониторинг системы в реальном времени на Python.">
+    <meta property="og:image" content="https://repository-images.githubusercontent.com/social-card.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://github.com/tipichniy340-tech/">
+    <meta property="twitter:title" content="Super Scripts Collection | Мощные инструменты автоматизации">
+    <meta property="twitter:description" content="Коллекция уникальных и мощных инструментов для автоматизации ПК. Мониторинг системы в реальном времени на Python.">
+    <meta property="twitter:image" content="https://repository-images.githubusercontent.com/social-card.png">
+
+    <!-- Favicon (заглушка) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- Стили -->
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #4338ca;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #10b981;
+            --accent-cyan: #06b6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tool-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .tool-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .tool-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .tool-description {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent-green);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: #0d1117;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-block code {
+            color: #e6edf3;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+        }
+
+        .keyword { color: #ff7b72; }
+        .string { color: #a5d6ff; }
+        .function { color: #d2a8ff; }
+        .comment { color: #8b949e; }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1rem; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .btn { display: block; margin: 10px 0; }
+            .btn-outline { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Super Scripts Collection</h1>
+            <p class="subtitle">Коллекция уникальных и мощных инструментов для автоматизации вашего ПК</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="tools">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">🛠 Доступные инструменты</h2>
+            
+            <div class="tools-grid">
+                <!-- System Info Card -->
+                <article class="tool-card">
+                    <div class="tool-icon">📊</div>
+                    <h3 class="tool-title">System Info</h3>
+                    <p class="tool-description">Мощная утилита для мониторинга системных ресурсов в реальном времени с красивым выводом.</p>
+                    
+                    <ul class="features-list">
+                        <li>CPU Monitoring — загрузка процессора</li>
+                        <li>Memory Tracking — использование RAM</li>
+                        <li>Disk Usage — анализ дискового пространства</li>
+                        <li>Rich Output — цветной табличный вывод</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <code>
+<span class="keyword">from</span> system_info <span class="keyword">import</span> display_system_info<br><br>
+<span class="comment"># Запуск мониторинга</span><br>
+display_system_info()
+                        </code>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <a href="https://github.com/tipichniy340-tech/" class="btn">Скачать</a>
+                        <a href="https://github.com/tipichniy340-tech/#readme" class="btn btn-outline">Документация</a>
+                    </div>
+                </article>
+
+                <!-- Security Card (Coming Soon) -->
+                <article class="tool-card" style="opacity: 0.7;">
+                    <div class="tool-icon">🔒</div>
+                    <h3 class="tool-title">Security & Privacy</h3>
+                    <p class="tool-description">Инструменты для защиты конфиденциальности и безопасности данных.</p>
+                    
+                    <ul class="features-list">
+                        <li style="color: var(--text-muted);">Анализ уязвимостей</li>
+                        <li style="color: var(--text-muted);">Очистка следов</li>
+                        <li style="color: var(--text-muted);">Мониторинг сети</li>
+                    </ul>
+
+                    <div style="margin-top: 20px; text-align: center; color: var(--text-muted); font-style: italic;">
+                        В разработке...
+                    </div>
+                </article>
+
+                <!-- Automation Card (Coming Soon) -->
+                <article class="tool-card" style="opacity: 0.7;">
+                    <div class="tool-icon">🤖</div>
+                    <h3 class="tool-title">Automation</h3>
+                    <p class="tool-description">Автоматизация рутинных задач и процессов.</p>
+                    
+                    <ul class="features-list">
+                        <li style="color: var(--text-muted);">Планировщик задач</li>
+                        <li style="color: var(--text-muted);">Авто-кликер</li>
+                        <li style="color: var(--text-muted);">Макросы</li>
+                    </ul>
+
+                    <div style="margin-top: 20px; text-align: center; color: var(--text-muted); font-style: italic;">
+                        В разработке...
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="quick-start" style="margin-top: 80px;">
+            <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">🚀 Быстрый старт</h2>
+            
+            <div class="tool-card" style="max-width: 800px; margin: 0 auto;">
+                <ol style="margin-left: 20px; color: var(--text-muted); line-height: 2;">
+                    <li>Клонируйте репозиторий:
+                        <div class="code-block">
+                            <code>git clone &lt;repository-url&gt;<br>cd &lt;repository-folder&gt;</code>
+                        </div>
+                    </li>
+                    <li>Установите зависимости:
+                        <div class="code-block">
+                            <code>pip install -r requirements.txt</code>
+                        </div>
+                    </li>
+                    <li>Запустите скрипт:
+                        <div class="code-block">
+                            <code>python system_info.py</code>
+                        </div>
+                    </li>
+                </ol>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="https://github.com/tipichniy340-tech/" class="btn">Перейти на GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="testing" style="margin-top: 60px; text-align: center;">
+            <h3 style="margin-bottom: 20px;">🧪 Тестирование</h3>
+            <div class="code-block" style="display: inline-block; text-align: left;">
+                <code>python test_system_info.py</code>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">Made with ❤️ by <strong>tipichniy340-tech</strong></p>
+            <div class="social-links">
+                <a href="https://github.com/tipichniy340-tech/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://github.com/tipichniy340-tech/#readme" target="_blank" rel="noopener noreferrer">Документация</a>
+                <a href="mailto:contact@example.com" target="_blank" rel="noopener noreferrer">Контакты</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data for SEO (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Super Scripts Collection",
+      "operatingSystem": "Windows, Linux, macOS",
+      "applicationCategory": "UtilitiesApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "tipichniy340-tech"
+      },
+      "description": "Коллекция уникальных и мощных инструментов для автоматизации ПК на Python.",
+      "keywords": "python, automation, system monitoring, psutil, rich"
+    }
+    </script>
+</body>
+</html>
